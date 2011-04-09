@@ -43,6 +43,16 @@ Generate a metalink file and download later.
     $ pacmaria2 --r --p k3b > k3b.metalink
     $ aria2c --metalink-file=k3b.metalink
 
+Notes
+=====
+
+* Since there's no configuration file and few command line options, users are
+encourageed to modify the aria2c / reflector options in the script.
+* By default, packages are downloaded to _/var/cache/pacman/pkg/_. Make sure
+you have write permission to it.
+* If aria2c couldn't finish the download, you will get left-over .aria2 files
+and incomplete packages in your download directory.
+
 See Also
 ========
 
