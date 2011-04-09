@@ -34,11 +34,11 @@ Usage
 Examples
 ========
 
-* Download packages to current directory, then install with pacman.
+Download packages to current directory, then install with pacman.
 
     $ pacmaria2 --r --d . sound-juicer && sudo pacman -S sound-juicer --cachedir .
 
-* Generate a metalink file and download later.
+Generate a metalink file and download later.
 
     $ pacmaria2 --r --p k3b > k3b.metalink
     $ aria2c --metalink-file=k3b.metalink
