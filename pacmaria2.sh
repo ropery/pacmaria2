@@ -11,7 +11,7 @@ re_fileurl='^[a-z]+://[^ ]+/([a-z-]+)/os/([a-z0-9_]+)/([^/ ]+\.pkg\.[^/ ]+)$'
 declare -a server_base_uris
 declare -a repo arch name
 
-# #param: ml_file, mirrorlist file
+# @param: ml_file, mirrorlist file
 # @global: set server_base_uris
 collect_servers_from_mirrorlist()
 {
