@@ -96,8 +96,8 @@ OPTIONS:
   -h,--help       Print this message and exit.
   --d <directory> Download files to directory.
   --m <file>      Use file as mirrorlist file.
-  --p             Print metalink to stdout and don't download.
   --r             Run reflector to retrieve server list.
+  --p             Print metalink to stdout and don't download.
 
 NOTES:
   Arguments are passed to pacman in addition to -Sp.
