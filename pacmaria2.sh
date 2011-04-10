@@ -95,6 +95,7 @@ USAGE: ${0##*/} [--d <directory>] [--p] [--r] <arguments>
 OPTIONS:
   -h,--help       Print this message and exit.
   --d <directory> Download files to directory.
+  --m <file>      Use file as mirrorlist file.
   --p             Print metalink to stdout and don't download.
   --r             Run reflector to retrieve server list.
 
@@ -109,6 +110,7 @@ until [ -z "${1}" ]; do
   case "${1}" in
     -h|--help) usage; exit;;
     --d) pmcachedir=${2}; shift 2;;
+    --m) mirrorlist=${2}; shift 2;;
     --r) runreflector=1; shift;;
     --p) printmetalink=1; shift;;
     *) pmargs+=("${1}"); shift;;
