@@ -90,7 +90,7 @@ check_cachedir()
 usage()
 {
   cat <<EOF
-USAGE: ${0##*/} [--d <directory>] [--p] [--r] <arguments>
+USAGE: ${0##*/} [options] [arguments]
 
 OPTIONS:
   -h,--help       Print this message and exit.
