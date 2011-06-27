@@ -2,6 +2,8 @@
 
 mirrorlist="/etc/pacman.d/mirrorlist"
 pmcachedir="/var/cache/pacman/pkg"
+pmdbpath="/var/lib/pacman"
+pmdblock=${pmdbpath}/db.lck
 runreflector=
 printmetalink=
 
@@ -87,6 +89,15 @@ check_cachedir()
   fi
 }
 
+# @global: read pmdblock
+check_dblock()
+{
+  if [ -e "${pmdblock}" ]; then
+    echo "Pacman database is locked." >&2
+    exit 2
+  fi
+}
+
 usage()
 {
   cat <<EOF
@@ -104,6 +115,8 @@ NOTES:
   If no arguments are passed, -u is passed to pacman.
 EOF
 }
+
+check_dblock
 
 pmargs=()
 until [ -z "${1}" ]; do
@@ -134,7 +147,7 @@ while read fileurl; do
 done <<< "${pacman_print}"
 
 if [ ${#name[@]} -eq 0 ]; then
-  echo "Nothing to do" >&2
+  echo "Nothing to do." >&2
   exit
 else
   echo "Targets:" >&2
