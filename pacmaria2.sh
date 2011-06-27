@@ -116,8 +116,6 @@ NOTES:
 EOF
 }
 
-check_dblock
-
 pmargs=()
 until [ -z "${1}" ]; do
   case "${1}" in
@@ -129,6 +127,8 @@ until [ -z "${1}" ]; do
     *) pmargs+=("${1}"); shift;;
   esac
 done
+
+check_dblock
 
 [ -z "${printmetalink}" ] && check_cachedir
 
