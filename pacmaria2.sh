@@ -132,8 +132,13 @@ check_dblock
 
 [ -z "${printmetalink}" ] && check_cachedir
 
-if [ -n "${reflector}" ]; then
-  collect_servers_from_mirrorlist <(/usr/bin/reflector -l 50)
+if [ -n "${runreflector}" ]; then
+  if [ -x /usr/bin/reflector ]; then
+    collect_servers_from_mirrorlist <(/usr/bin/reflector -l 50)
+  else
+    echo "Warning: reflector not present, using local mirrorlist." >&2
+    collect_servers_from_mirrorlist "${mirrorlist}"
+  fi
 else
   collect_servers_from_mirrorlist "${mirrorlist}"
 fi
