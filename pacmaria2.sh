@@ -116,6 +116,7 @@ NOTES:
 EOF
 }
 
+set -e  # Avoid `shift n` dead loop
 pmargs=()
 until [ -z "${1}" ]; do
   case "${1}" in
@@ -127,6 +128,7 @@ until [ -z "${1}" ]; do
     *) pmargs+=("${1}"); shift;;
   esac
 done
+set +e
 
 check_dblock
 
